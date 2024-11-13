@@ -1,0 +1,134 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6A5ACD, #48D1CC);
+    
+}
+
+form.Login {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+    transition: 0.4s ease-in-out;
+}
+
+form.Login legend h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+form.Login legend p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+form.Login .User, form.Login .pass {
+    margin: 1.5rem 0;
+}
+
+form.Login h2 {
+    font-size: 1rem;
+    color: #333;
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+form.Login input[type="text"],
+form.Login input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    transition: 0.4s ease-in-out;
+}
+
+form.Login input[type="text"]:focus,
+form.Login input[type="password"]:focus {
+    border-color: #48D1CC;
+    transform: scale(1.1);
+}
+form.Login p a {
+    color: #6A5ACD;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    
+}
+
+form.Login p a:hover {
+    color: #48D1CC;
+}
+
+form.Login .submit {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #6A5ACD;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form.Login .submit:hover {
+    background-color: #48D1CC;
+}
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    font-family: Arial, sans-serif;
+    color: #333;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #6A5ACD;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+form.Login.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+    transition: 0.4s ease-in;
+}

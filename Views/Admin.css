@@ -1,0 +1,161 @@
+/* Reset and Basic Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #4a47a3;
+    color: #fff;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 120px;
+    margin-right: 10px;
+}
+
+.toggle-btn {
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 10px;
+    color: #fff;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+.header-icons i {
+    font-size: 1.5rem;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+#sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #333;
+    color: #fff;
+    overflow-y: auto;
+    transition: 0.4s;
+    padding-top: 60px;
+    z-index: 10;
+}
+
+#sidebar.show {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.close-btn {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin: 15px 0;
+}
+
+.sidebar-menu li a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.sidebar-menu li a i {
+    margin-right: 15px;
+    font-size: 1.4rem;
+    color: #ffcd3c;
+}
+
+.sidebar-menu li a:hover {
+    background-color: #4a47a3;
+    color: #ffcd3c;
+}
+
+
+main {
+    margin-left: 250px;
+    padding: 2rem;
+    flex-grow: 1;
+    transition: margin-left 0.4s;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 800px) {
+    #sidebar {
+        width: 250px;
+        left: -100%;
+    }
+    #sidebar.show {
+        left: 0;
+    }
+    main {
+        margin-left: 0;
+    }
+}
+/*CHAAAATTTTTTGPTTTTTTTTTTTT*/
+#header {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/*CHAAAATTTTTTGPTTTTTTTTTTTT*/
+.hide-header {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/*CHAAAATTTTTTGPTTTTTTTTTTTT*/
+@media (max-width: 800px) {
+    #header {
+        transition: opacity 0.3s ease, visibility 0.3s ease;  /* Ensure smooth transition */
+    }
+}
