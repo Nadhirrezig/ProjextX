@@ -214,8 +214,8 @@ function loadRecentActivitySection() {
             <h1>Recent Activity</h1>
             <ul>
                 <li>User logged in</li>
-                <li>Order #123 processed</li>
-                <li>Employee John Doe added</li>
+                <li>Order #nomro is waiting for admins approvale</li>
+                <li>Employee flen foleni is online hhhhh</li>
             </ul>
         </div>
     `;
@@ -226,7 +226,7 @@ function loadReportsSection() {
     document.querySelector("main").innerHTML = `
         <div class="reports-section">
             <h1>Reports</h1>
-            <p>Detailed analytics and reports will appear here.</p>
+            <p>reports will appear here.</p>
         </div>
     `;
 }
