@@ -226,7 +226,7 @@ function loadReportsSection() {
     document.querySelector("main").innerHTML = `
         <div class="reports-section">
             <h1>Reports</h1>
-            <p>reports will appear here.</p>
+            <p>Detailed analytics and reports will appear here.</p>
         </div>
     `;
 }
