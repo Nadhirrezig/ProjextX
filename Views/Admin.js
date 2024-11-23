@@ -34,7 +34,7 @@ function closeNav() {
 }
 ////////////////////////////////////////////////////////////////// CONTROLLING THE menu \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 /////// dashboard on click
-function loadmain(){
+function loadmain(event){
     const main = `
             <div class="main-content">
                 <section class="card" onclick="loadOverviewSection()">
@@ -56,7 +56,6 @@ function loadmain(){
         setTimeout(()=>{
             closeNav();
         },500);
-        
     }
 }
 ////////////////////////////////////////////////////////////////// Controlling the overview \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -99,8 +98,8 @@ function loadEmployeeSection() {
                     </div>
                 </form>
             </div>
+            <h1>Employees</h1>
             <div class="employee-section">
-                <h1>Employees</h1>
                 <table id="employee-table">
                     <thead>
                         <tr>
@@ -226,7 +225,7 @@ function loadReportsSection() {
     document.querySelector("main").innerHTML = `
         <div class="reports-section">
             <h1>Reports</h1>
-            <p>Detailed analytics and reports will appear here.</p>
+            <p>reports will appear here.</p>
         </div>
     `;
 }
