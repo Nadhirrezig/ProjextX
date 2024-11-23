@@ -25,19 +25,26 @@
             <span class="close-btn" onclick="closeNav()">&times;</span>
         </div>
         <ul class="sidebar-menu">
-            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Clients</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="#" onclick="loadmain()"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-chart-line"></i>Menu</a></li>
+            <li><a href="#"><i class="fa-solid fa-bookmark"></i> Orders</a></li>
             <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </aside>
     <main>
         <div class="main-content">
-            <section class="card">Overview</section>
-            <section class="card">User Stats</section>
-            <section class="card">Recent Activity</section>
-            <section class="card">Reports</section>
+            <section class="card" onclick="loadOverviewSection()">
+                <button>Overview</button>
+            </section>
+            <section class="card" onclick="loadEmployeeSection()">
+                <button>Managing Employment</button>
+            </section>
+            <section class="card" onclick="loadRecentActivitySection()">
+                <button>Recent Activity</button>
+            </section>
+            <section class="card" onclick="loadReportsSection()">
+                <button>Reports</button>
+            </section>
         </div>
     </main>
 </body>
