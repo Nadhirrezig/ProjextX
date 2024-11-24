@@ -11,3 +11,5 @@ this project will be available by the end of the 2024 year
 # Update 23/11/2024 16:20PM : 
 ### * admin.css 
    responsive design
+# Update 24/11/2024 12:59PM : 
+### * admin.js
