@@ -81,7 +81,7 @@ function loadEmployeeSection() {
                     <input type="text" id="role" name="role" placeholder="Enter employee role" required>
                     
                     <label for="contact">Contact:</label>
-                    <input type="tel" id="contact" name="contact" maxlength="8" placeholder="Enter phone number" required>
+                    <input type="tel" id="contact" name="contact" maxlength="8" minlength="8" placeholder="Enter phone number" required>
                     
                     <label for="status">Status:</label>
                     <select id="status" name="status" required>
@@ -123,9 +123,7 @@ function loadEmployeeSection() {
     `;
     loadEmployees();
 }
-
-let employees = [];
-
+let employees = JSON.parse(localStorage.getItem("employement")) || [];
 function addEmployee(event) {
     event.preventDefault();
     const name = document.getElementById("name").value;
@@ -144,14 +142,16 @@ function addEmployee(event) {
     };
 
     employees.push(newEmployee);
+    save();
     loadEmployees();
     document.getElementById("employee-form").reset();
 }
-
+function save(){
+    localStorage.setItem("employement", JSON.stringify(employees));
+}
 function loadEmployees() {
     const tableBody = document.querySelector("#employee-table tbody");
     tableBody.innerHTML = "";
-
     if (employees.length === 0) {
         tableBody.innerHTML = `
             <tr>
@@ -181,28 +181,40 @@ function loadEmployees() {
 
 function editEmployee(id) {
     const employee = employees.find((emp) => emp.id === id);
-    if (employee) {
-        if (newName) {
-            employee.name = newName;
-        }
-        if (newRole) {
-            employee.role = newRole;
-        }
-        if (newContact) {
-            employee.contact = newContact;
-        }
-        if (newStatus) {
-            employee.status = newStatus;
-        }
-        if (newSalary) {
-            employee.salary = newSalary;
-        }
-        loadEmployees();
+    
+    if (!employee) {
+        console.error("Employee not found");
+        return;
     }
-}
 
+
+    document.getElementById("name").value = employee.name || "";
+    document.getElementById("role").value = employee.role || "";
+    document.getElementById("contact").value = employee.contact || "";
+    document.getElementById("salary").value = employee.salary || 0;
+
+
+    const form = document.getElementById("employee-form");
+    form.onsubmit = function (event) {
+        event.preventDefault();
+
+
+        employee.name = document.getElementById("name").value;
+        employee.role = document.getElementById("role").value;
+        employee.contact = document.getElementById("contact").value;
+        employee.status = document.getElementById("status").value;
+        employee.salary = parseInt(document.getElementById("salary").value) || 0;
+
+        save();
+        loadEmployees();
+
+        form.onsubmit = addEmployee;
+        form.reset();
+    };
+}
 function deleteEmployee(id) {
     employees = employees.filter((emp) => emp.id !== id);
+    save();
     loadEmployees();
 }
 
