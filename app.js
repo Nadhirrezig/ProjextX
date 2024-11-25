@@ -47,7 +47,7 @@ app.listen(PORT, () => {
 app.get('/admin', (req, res) => {
   if (req.session.user && req.session.user.role === 'admin') {
     console.log('admin connected');
-    return res.sendFile(path.join(__dirname, 'Public', 'Admin.html'));
+    return res.sendFile(path.join(__dirname, 'View', 'Admin.html'));
   }
   res.redirect('/login');
     
