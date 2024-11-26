@@ -1,8 +1,11 @@
 const express = require('express');
+const { Server } = require('socket.io');
 const http = require('http');
 const path = require('path');
 const session = require('express-session');
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 const PORT = 5000;
 
 /////////////////////////////////////////////////////////////////////Parsing DATA////////////////////////////////////////////////////////
@@ -10,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('Public'));
 app.use(express.static('Views'));
 
-app.use(session({ secret: 'mySecret', resave: false, saveUninitialized: true }));
+app.use(session({ secret: 'Nadhir_2872004', resave: false, saveUninitialized: true }));
 
 
 const users = {
@@ -47,8 +50,30 @@ app.listen(PORT, () => {
 app.get('/admin', (req, res) => {
   if (req.session.user && req.session.user.role === 'admin') {
     console.log('admin connected');
-    return res.sendFile(path.join(__dirname, 'View', 'Admin.html'));
+    return res.sendFile(path.join(__dirname, 'Views', 'Admin.html'));
   }
   res.redirect('/login');
     
   });
+/////////////////////////////////////////////////////////////////////////socket.io functions for the recent activitie status \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+let recentActivities = [];
+
+io.on('connection', (socket) => {
+  console.log("New client connected");
+
+  socket.on('new-login', (loginData) => {
+    const activity = {
+      socketId: socket.id,
+      Ip_address: loginData.Ip_address,
+      timestamp: loginData.timestamp,
+    };
+    recentActivities.push(activity);
+    io.emit('recent-activity', recentActivities);
+  });
+  socket.on('disconnect', () => {
+    const activity = recentActivities.find((activity) => activity.socketId === socket.id);
+    if (activity) {
+      console.log(`IP: ${activity.Ip_address} | Time: ${new Date(activity.timestamp).toLocaleString()} is disconnected`);
+    }
+  });
+}); //// wlh karazt wlh 20:37PM 26/11/2024
