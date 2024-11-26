@@ -15,4 +15,6 @@ this project will be available by the end of the 2024 year
 ### * admin.js
 # Update 25/11/2024 17:42 Title: Backend server  
 ### * app.js 
-
+# Update 26/11/2024 21:15PM Title : ISSUE WITH THE REAL TIME COMMUNICATION
+### * app.js
+Issues trying to Send the activitie with socket.io-services
