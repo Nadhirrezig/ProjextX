@@ -6,11 +6,12 @@
     <link rel="stylesheet" href="Admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>ProjectX</title>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
     <header id="header">
         <div class="logo-section">
-            <img src="logo-no-background.png" alt="Logo" class="logo">
+            <img src="" alt="Logo" class="logo">
             <span class="toggle-btn" onclick="openNav()">&#9776;</span>
         </div>
         <h1>Welcome, Admin</h1>
@@ -27,7 +28,6 @@
         <ul class="sidebar-menu">
             <li><a href="#" onclick="loadmain()"><i class="fas fa-home"></i>Dashboard</a></li>
             <li><a href="#"><i class="fas fa-chart-line"></i>Menu</a></li>
-            <li><a href="#"><i class="fa-solid fa-bookmark"></i> Orders</a></li>
             <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </aside>
