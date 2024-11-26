@@ -1,3 +1,4 @@
+
 let barWidth = document.getElementById("sidebar");
 let DocWidth = document.getElementsByTagName("body")[0];
 let main = document.getElementsByTagName("main")[0];
@@ -73,7 +74,7 @@ function loadEmployeeSection() {
         <div class="employee-management">
             <div class="employee-form-container">
                 <h2>Add New Employee</h2>
-                <form id="employee-form" onsubmit="addEmployee(event)">
+                <form id="employee-form" onsubmit="addEmployee(event)" >
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" placeholder="Enter employee name" required>
                     
@@ -93,7 +94,7 @@ function loadEmployeeSection() {
                     <input type="number" id="salary" name="salary" placeholder="Enter salary" min="0">
                     
                     <div class="form-buttons">
-                        <button type="submit">Add Employee</button>
+                        <button type="submit">Submit</button>
                         <button type="reset">Clear</button>
                     </div>
                 </form>
@@ -221,15 +222,45 @@ function deleteEmployee(id) {
 ////////////////////////////////////////////////////////////////// managing the recent activitie \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 function loadRecentActivitySection() {
     document.querySelector("main").innerHTML = `
-        <div class="activity-section">
+        <div id="recent-activity" class="activity-section">
             <h1>Recent Activity</h1>
-            <ul>
-                <li>User logged in</li>
-                <li>Order #nomro is waiting for admins approvale</li>
-                <li>Employee flen foleni is online hhhhh</li>
+            <ul id="activity-list">
+                <!-- Activities will be dynamically inserted here -->
             </ul>
         </div>
     `;
+    const socket = io();
+    let Ip_address = '';
+    fetch("https://ipinfo.io/json")
+        .then(response => response.json())
+        .then(data => { 
+            console.log(`IP Address is: ${data.ip}`);
+            Ip_address = data.ip;
+            const timestamp = Date.now();
+            const loginData = {
+                Ip_address,
+                timestamp
+            };
+            socket.emit('new-login', loginData);
+        })
+        .catch(error => {
+            console.error("Error caused by firewall:", error);
+        });
+    socket.on('recent-activity', (activities) => {
+        console.log('Updated recent activity:', activities);
+        updateRecentActivityUI(activities);
+    });
+}
+
+function updateRecentActivityUI(activities) {
+    const activitySection = document.getElementById('recent-activity');
+    const activityList = activitySection.querySelector('#activity-list');
+    activityList.innerHTML = activities.map(activities => `
+        <li>
+            <p>IP: ${activities.ip}</p>
+            <p>Time: ${new Date(activities.timestamp).toLocaleString()}</p>
+        </li>
+    `).join('');
 }
 
 ////////////////////////////////////////////////////////////////// Reports\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
