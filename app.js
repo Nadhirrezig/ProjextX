@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('Public'));
 app.use(express.static('Views'));
 
-app.use(session({ secret: 'Nadhir_2872004', resave: false, saveUninitialized: true }));
+app.use(session({ secret: 'NIGGABITCH', resave: false, saveUninitialized: true }));
 
 
 const users = {
