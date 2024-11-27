@@ -19,3 +19,5 @@ this project will be available by the end of the 2024 year
 ### * app.js
 ### * admin.js
 Issues trying to Send the activitie with socket.io-services
+# Update 27/11/2024
+### *client main pages
