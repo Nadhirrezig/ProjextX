@@ -1,25 +1,29 @@
 const express = require('express');
-const { Server } = require('socket.io');
+const socketIo = require('socket.io');
 const http = require('http');
 const path = require('path');
 const session = require('express-session');
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = socketIo(server); 
 const PORT = 5000;
 
 /////////////////////////////////////////////////////////////////////Parsing DATA////////////////////////////////////////////////////////
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('Public'));
 app.use(express.static('Views'));
+app.use(express.static(path.join(__dirname,'public','clienT_env')));
 
-app.use(session({ secret: 'NIGGABITCH', resave: false, saveUninitialized: true }));
+app.use(session({ secret: 'niggabich', resave: false, saveUninitialized: true }));
 
 
 const users = {
   admin: { password: 'admin123', role: 'admin' }
 };
-
+/////////////////////////////////////////////////////////////Order Menu\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+app.get('/', (req,res)=>{
+  res.sendFile(path.join(__dirname, 'clienT_env','index.html'));
+})
 /////////////////////////////////////////////////////////////login page//////////////////////////////////////////////////////////
 
 app.get('/login', (req, res) => {
