@@ -1,0 +1,94 @@
+/* General Reset */
+body, h1, h2, p, div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.header {
+  background-color: #FFA500;
+  text-align: center;
+  padding: 1rem;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: space-between;
+}
+
+.menu-section, .order-section {
+  flex: 1 1 45%;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-bottom: 30px;
+}
+
+.menu-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.menu-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  width: 48%;
+  background-color: white;
+}
+
+.menu-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.order-button {
+  padding: 0.5rem 1rem;
+  background-color: #FFA500;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.order-button:hover {
+  background-color: #cc8400;
+}
+
+.footer {
+  text-align: center;
+  padding: 0.2rem;
+  background-color: #333;
+  color: white;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-item {
+    width: 100%;
+  }
+}
