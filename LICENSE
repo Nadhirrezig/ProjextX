@@ -1,8 +1,63 @@
-Copyright (c) [2024]
-[ProjextX] [All rights reserved].
+COMMERCIAL SOFTWARE LICENSE AGREEMENT
+This Commercial Software License Agreement ("Agreement") is made between you, the end user ("Licensee" or "User"), and ProjextX ("Licensor" or "We"). By installing, copying, or using the software (the “Software”), you agree to be bound by the terms of this Agreement. If you do not agree to the terms of this Agreement, do not install, copy, or use the Software.
 
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+1. GRANT OF LICENSE
+1.1 License Grant: Subject to the terms and conditions of this Agreement, ProjextX grants you a non-exclusive, non-transferable, and limited license to use the Software for personal or commercial purposes, as purchased, on the device(s) specified and only by the Licensee.
 
-Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-THIS SOFTWARE IS PROVIDED BY [ProjextX] “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL [ProjextX] BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+1.2 Usage Restrictions: You may:
 
+Install and use the Software only as permitted by this Agreement.
+Use the Software only on the number of devices or users specified in the purchase agreement.
+You may not:
+
+Redistribute, sell, lease, sublicense, or transfer the Software to any third party.
+Modify, reverse engineer, decompile, disassemble, or otherwise attempt to discover the source code of the Software.
+Use the Software for any purpose other than as specified by this Agreement.
+1.3 License Duration: This license is granted for a specified period, unless otherwise agreed (e.g., perpetual, annual, etc.). Once the license expires, continued use of the Software requires renewal and payment of the applicable fee.
+
+2. INTELLECTUAL PROPERTY
+2.1 Ownership: The Software is licensed, not sold, to you. ProjextX retains full ownership of the Software and all associated intellectual property, including but not limited to copyrights, trademarks, and patents.
+
+2.2 Prohibited Actions: You may not:
+
+Remove or obscure any copyright, trademark, or other proprietary notices from the Software.
+Use the Software in any way that infringes the intellectual property rights of ProjextX or others.
+3. LICENSE KEY AND ACTIVATION
+3.1 License Activation: The Software requires an activation key for installation and use. You agree to provide accurate information for license activation. License keys are issued upon purchase and are valid only for the specific Licensee.
+
+3.2 Online Verification: The Software may require periodic online verification with ProjextX's server to ensure the validity of the license. If verification fails, the Software may be disabled until a valid license is obtained.
+
+4. UPDATES AND SUPPORT
+4.1 Updates: From time to time, ProjextX may provide updates, patches, or new versions of the Software. These updates may be made available at no additional cost or may require an additional fee.
+
+4.2 Support: Support services may be provided according to the terms of the purchase agreement, and may be subject to an additional fee.
+
+5. WARRANTY DISCLAIMER
+5.1 No Warranty: The Software is provided "as is," and ProjextX disclaims all warranties, express or implied, including but not limited to implied warranties of merchantability and fitness for a particular purpose. ProjextX does not guarantee that the Software will be error-free or uninterrupted.
+
+6. LIMITATION OF LIABILITY
+6.1 Limitation of Liability: In no event shall ProjextX be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of profit, revenue, data, or use, arising out of the use or inability to use the Software, even if ProjextX has been advised of the possibility of such damages.
+
+6.2 Maximum Liability: The maximum liability of ProjextX shall not exceed the amount paid by the Licensee for the Software.
+
+7. TERMINATION
+7.1 Termination: This Agreement is effective until terminated. ProjextX may terminate this Agreement if you breach any term of this Agreement. Upon termination, you must cease all use of the Software and destroy all copies.
+
+7.2 Survival: Sections 2, 3, 5, 6, 7, and 8 will survive termination of this Agreement.
+
+8. GOVERNING LAW AND DISPUTE RESOLUTION
+8.1 Governing Law: This Agreement will be governed by the laws of [Jurisdiction/State/Country].
+
+8.2 Dispute Resolution: Any disputes arising under this Agreement shall be resolved through [Arbitration/Mediation] in [Location], and both parties agree to attempt to resolve disputes amicably before pursuing legal action.
+
+9. MISCELLANEOUS
+9.1 Entire Agreement: This Agreement constitutes the entire understanding between the parties regarding the Software and supersedes all prior or contemporaneous agreements, representations, or warranties.
+
+9.2 Severability: If any provision of this Agreement is deemed invalid, the remaining provisions will remain in effect.
+
+BY INSTALLING, COPYING, OR USING THE SOFTWARE, YOU AGREE TO THE TERMS AND CONDITIONS OF THIS AGREEMENT.
+Customization Notes:
+Jurisdiction: Specify the jurisdiction under which your license agreement will be governed, such as a particular country or state.
+Support Terms: Define whether support is included or available for an additional fee, and what kind of support (email, chat, etc.) is offered.
+Trial Terms: If you offer a trial version of your software, you may want to include additional terms around the trial's duration and features.
+Versioning: If you have different versions or tiers of your software (e.g., Basic, Premium), you can specify those in the license grant to clarify what each version is entitled to.
