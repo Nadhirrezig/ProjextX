@@ -225,44 +225,11 @@ function loadRecentActivitySection() {
         <div id="recent-activity" class="activity-section">
             <h1>Recent Activity</h1>
             <ul id="activity-list">
-                <!-- Activities will be dynamically inserted here -->
+                <li>activitie list will be here </li>
             </ul>
         </div>
     `;
-    const socket = io();
-    let Ip_address = '';
-    fetch("https://ipinfo.io/json")
-        .then(response => response.json())
-        .then(data => { 
-            console.log(`IP Address is: ${data.ip}`);
-            Ip_address = data.ip;
-            const timestamp = Date.now();
-            const loginData = {
-                Ip_address,
-                timestamp
-            };
-            socket.emit('new-login', loginData);
-        })
-        .catch(error => {
-            console.error("Error caused by firewall:", error);
-        });
-    socket.on('recent-activity', (activities) => {
-        console.log('Updated recent activity:', activities);
-        updateRecentActivityUI(activities);
-    });
 }
-
-function updateRecentActivityUI(activities) {
-    const activitySection = document.getElementById('recent-activity');
-    const activityList = activitySection.querySelector('#activity-list');
-    activityList.innerHTML = activities.map(activities => `
-        <li>
-            <p>IP: ${activities.ip}</p>
-            <p>Time: ${new Date(activities.timestamp).toLocaleString()}</p>
-        </li>
-    `).join('');
-}
-
 ////////////////////////////////////////////////////////////////// Reports\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 function loadReportsSection() {
     document.querySelector("main").innerHTML = `
