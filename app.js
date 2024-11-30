@@ -12,7 +12,7 @@ const PORT = 5000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('Public'));
 app.use(express.static('Views'));
-app.use(express.static(path.join(__dirname,'public','clienT_env')));
+app.use(express.static(path.join(__dirname,'Public','clienT_env')));
 
 app.use(session({ secret: 'niggabich', resave: false, saveUninitialized: true }));
 
@@ -27,7 +27,7 @@ app.get('/', (req,res)=>{
 /////////////////////////////////////////////////////////////login page//////////////////////////////////////////////////////////
 
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+  res.sendFile(path.join(__dirname, 'Public', 'login.html'));
 });
 
 //////////////////////////////////////////////////////////////login permissions///////////////////////////////////////////////////////
@@ -47,9 +47,7 @@ app.post('/login', (req, res) => {
   }
   res.redirect('/login');
 });
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+
 //////////////////////////////////////////////////////////////////////////admin interface with low level permission/////////////////////////////////////////////////////////
 app.get('/admin', (req, res) => {
   if (req.session.user && req.session.user.role === 'admin') {
@@ -60,24 +58,19 @@ app.get('/admin', (req, res) => {
     
   });
 /////////////////////////////////////////////////////////////////////////socket.io functions for the recent activitie status \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-let recentActivities = [];
-
 io.on('connection', (socket) => {
-  console.log("New client connected");
+  console.log('A new client connected:', socket.id);
 
-  socket.on('new-login', (loginData) => {
-    const activity = {
-      socketId: socket.id,
-      Ip_address: loginData.Ip_address,
-      timestamp: loginData.timestamp,
-    };
-    recentActivities.push(activity);
-    io.emit('recent-activity', recentActivities);
-  });
+  socket.emit('alert', 'You are connected to the server!');
+
   socket.on('disconnect', () => {
-    const activity = recentActivities.find((activity) => activity.socketId === socket.id);
-    if (activity) {
-      console.log(`IP: ${activity.Ip_address} | Time: ${new Date(activity.timestamp).toLocaleString()} is disconnected`);
-    }
+      console.log('Client disconnected:', socket.id);
   });
 }); //// wlh karazt wlh 20:37PM 26/11/2024
+
+
+
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
