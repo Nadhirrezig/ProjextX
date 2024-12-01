@@ -24,7 +24,7 @@ Issues trying to Send the activitie with socket.io-services
 # Update 29/11/2024
 ### *app.js
 ### *clienT_env\cd\script.js
-# Update 01/12/2024 16:57PM Title: Iussue Fixed 
+# Update 01/12/2024 16:57PM Title: Issue Fixed 
 ### *app.js 
 ### *admin.js
 ### *index.html
