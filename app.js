@@ -5,24 +5,23 @@ const path = require('path');
 const session = require('express-session');
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server); 
+const io = socketIo(server);
 const PORT = 5000;
 
 /////////////////////////////////////////////////////////////////////Parsing DATA////////////////////////////////////////////////////////
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('Public'));
-app.use(express.static('Views'));
+app.use(express.static(path.join(__dirname,'Public')));
+app.use(express.static(path.join(__dirname,'Views')));
 app.use(express.static(path.join(__dirname,'Public','clienT_env')));
-
 app.use(session({ secret: 'niggabich', resave: false, saveUninitialized: true }));
-
+app.set('trust proxy', true);
 
 const users = {
   admin: { password: 'admin123', role: 'admin' }
 };
 /////////////////////////////////////////////////////////////Order Menu\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 app.get('/', (req,res)=>{
-  res.sendFile(path.join(__dirname, 'clienT_env','index.html'));
+  res.sendFile(path.join(__dirname,'Public','clienT_env','index.html'));
 })
 /////////////////////////////////////////////////////////////login page//////////////////////////////////////////////////////////
 
@@ -55,22 +54,28 @@ app.get('/admin', (req, res) => {
     return res.sendFile(path.join(__dirname, 'Views', 'Admin.html'));
   }
   res.redirect('/login');
-    
+
   });
 /////////////////////////////////////////////////////////////////////////socket.io functions for the recent activitie status \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 io.on('connection', (socket) => {
-  console.log('A new client connected:', socket.id);
+  const clientIp = socket.handshake.headers['x-forwarded-for'] || socket.handshake.address;
+  const processedClientIp = clientIp.startsWith('::ffff:') ? clientIp.replace('::ffff:', '') : clientIp;
 
-  socket.emit('alert', 'You are connected to the server!');
+  const ip = socket.request.headers['x-forwarded-for'] || socket.request.connection.remoteAddress;
+  const processedIp = ip.startsWith('::ffff:') ? ip.replace('::ffff:', '') : ip;
+
+  console.log(`A new client connected: ${processedClientIp} \nwith a Public IP of ${processedIp} \nsocket id: ${socket.id}`);
+
+  socket.emit('clientIp', clientIp);
 
   socket.on('disconnect', () => {
-      console.log('Client disconnected:', socket.id);
+      console.log(`This Client: ${processedClientIp} \nwith a Public IP of ${processedIp} has disconnected \nsocket id: ${socket.id}`);
   });
-}); //// wlh karazt wlh 20:37PM 26/11/2024
+}); //// <3 Finally
 
 
 
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
