@@ -1,4 +1,4 @@
-
+const socket = io();
 let barWidth = document.getElementById("sidebar");
 let DocWidth = document.getElementsByTagName("body")[0];
 let main = document.getElementsByTagName("main")[0];
@@ -229,7 +229,9 @@ function loadRecentActivitySection() {
             </ul>
         </div>
     `;
+    
 }
+
 ////////////////////////////////////////////////////////////////// Reports\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 function loadReportsSection() {
     document.querySelector("main").innerHTML = `
