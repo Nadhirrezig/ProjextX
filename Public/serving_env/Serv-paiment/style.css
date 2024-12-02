@@ -1,0 +1,124 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f7f9fc;
+    color: #333;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    height: 10vh;
+    width: 100%;
+    background-color: #a4b86b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1, header h2 {
+    color: #fff;
+    font-size: 1.2rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+header h2 {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/* Card container */
+.orders {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Individual card styling */
+.card {
+    width: 300px;
+    background: #69c776;
+    color: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Pcard {
+    opacity: 0.7;
+    width: 300px;
+    background: #225e2a;
+    color: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Text inside cards */
+.card h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card p {
+    font-size: 1rem;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.card h1:last-child {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    text-align: right;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+    }
+
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    header h1, header h2 {
+        font-size: 1rem;
+    }
+}
+
+a{text-decoration: none;
+color: #fff;}
