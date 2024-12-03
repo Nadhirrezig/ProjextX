@@ -1,4 +1,3 @@
-const socket = io();
 let barWidth = document.getElementById("sidebar");
 let DocWidth = document.getElementsByTagName("body")[0];
 let main = document.getElementsByTagName("main")[0];
@@ -220,18 +219,20 @@ function deleteEmployee(id) {
 }
 
 ////////////////////////////////////////////////////////////////// managing the recent activitie \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-socket.on('activity', (loginData) => {
-    loadRecentActivitySection(loginData)
-});
 
-function loadRecentActivitySection(loginData) {
+function loadRecentActivitySection() {
     document.querySelector("main").innerHTML = `
         <div id="recent-activity" class="activity-section">
             <h1>Recent Activity</h1>
-            <ul id="activity-list">Bitch im here</ul>
+            <ul id="activity-list"></ul>
         </div>
     `;
-    updateRecentActivityUI(loginData);
+    const socket = io();
+    socket.off("activity");
+    socket.on("activity", (loginData) => {
+        console.log("Received activity data:", loginData);
+        updateRecentActivityUI(loginData);
+    });
 }
 
 function updateRecentActivityUI(loginData) {
