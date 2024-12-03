@@ -1,3 +1,14 @@
+//------------table number--------//
+  let table=null;
+  table=prompt("put your table number");
+
+  while(table===null||table===""){
+    table=prompt("Table number is required. Please enter your table number");
+  }
+
+  const tabcont = document.getElementById("table");
+  tabcont.innerHTML=`<p>table number - ${table}</p>` 
+
 // Sample menu data
 const menu = [
     { id: 1, name: "expresso", price: 2, img: "srcIMG/expresso.jpg" },
