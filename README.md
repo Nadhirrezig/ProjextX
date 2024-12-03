@@ -35,4 +35,8 @@ Fetching Public Ip address of new Connections
 # Update 03/12/2024
 ### adding table number to the client env
 the table number is required
+# Update 03/12/2024 20:46PM Title:Recent Activitie with all IpAddress connections 
+Real time update every Time a new Connection is established
+### app.js 
+### admin.js
 
