@@ -220,16 +220,30 @@ function deleteEmployee(id) {
 }
 
 ////////////////////////////////////////////////////////////////// managing the recent activitie \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-function loadRecentActivitySection() {
+socket.on('activity', (loginData) => {
+    loadRecentActivitySection(loginData)
+});
+
+function loadRecentActivitySection(loginData) {
     document.querySelector("main").innerHTML = `
         <div id="recent-activity" class="activity-section">
             <h1>Recent Activity</h1>
-            <ul id="activity-list">
-                <li>activitie list will be here </li>
-            </ul>
+            <ul id="activity-list">Bitch im here</ul>
         </div>
     `;
-    
+    updateRecentActivityUI(loginData);
+}
+
+function updateRecentActivityUI(loginData) {
+    const activityList = document.querySelector('#activity-list');
+    if (activityList) {
+        const newActivity = document.createElement('li');
+        newActivity.innerHTML = `
+            <p>IP: ${loginData.Ip_address}</p>
+            <p>Time: ${new Date(loginData.timestamp).toLocaleString()}</p>
+        `;
+        activityList.appendChild(newActivity);
+    }
 }
 
 ////////////////////////////////////////////////////////////////// Reports\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
