@@ -32,4 +32,7 @@ Issues trying to Send the activitie with socket.io-services
 Fetching Public Ip address of new Connections 
 # Update 02/12/2024
 ### installing serving_env
+# Update 03/12/2024
+### adding table number to the client env
+the table number is required
 
