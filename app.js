@@ -3,6 +3,7 @@ const socketIo = require('socket.io');
 const http = require('http');
 const path = require('path');
 const session = require('express-session');
+const { timeStamp, time } = require('console');
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
@@ -58,18 +59,25 @@ app.get('/admin', (req, res) => {
   });
 /////////////////////////////////////////////////////////////////////////socket.io functions for the recent activitie status \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 io.on('connection', (socket) => {
-  const clientIp = socket.handshake.headers['x-forwarded-for'] || socket.handshake.address;
-  const processedClientIp = clientIp.startsWith('::ffff:') ? clientIp.replace('::ffff:', '') : clientIp;
+    const clientIp = socket.handshake.headers['x-forwarded-for'] || socket.handshake.address;
+    const processedClientIp = clientIp.startsWith('::ffff:') ? clientIp.replace('::ffff:', '') : clientIp;
+    const Login_data = {
+      Ip_address : processedClientIp,
+      timeStamp : Date.now()
+    }
 
-  const ip = socket.request.headers['x-forwarded-for'] || socket.request.connection.remoteAddress;
-  const processedIp = ip.startsWith('::ffff:') ? ip.replace('::ffff:', '') : ip;
+    const ip = socket.request.headers['x-forwarded-for'] || socket.request.connection.remoteAddress;
+    const processedIp = ip.startsWith('::ffff:') ? ip.replace('::ffff:', '') : ip;
 
-  console.log(`A new client connected: ${processedClientIp} \nwith a Public IP of ${processedIp} \nsocket id: ${socket.id}`);
+    console.log(`A new client connected: ${processedClientIp} \nwith a Public IP of ${processedIp} \nsocket id: ${socket.id}`);
 
-  socket.emit('clientIp', clientIp);
+    io.emit("activity",Login_data);
+    
+
 
   socket.on('disconnect', () => {
-      console.log(`This Client: ${processedClientIp} \nwith a Public IP of ${processedIp} has disconnected \nsocket id: ${socket.id}`);
+    console.log(`This Client: ${processedClientIp} \nwith a Public IP of ${processedIp} has disconnected \nsocket id: ${socket.id}`);
+    socket.emit("activitie",Login_data);
   });
 }); //// <3 Finally
 
