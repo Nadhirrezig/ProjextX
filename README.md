@@ -47,9 +47,9 @@ Updating the OverView sections
 **This Project will be delayed due to big changes and updates 
   the Upcoming updates will be :
            <br>
-           React
+==========>React
            <br>
-           ejs files
-           <br>
-           chart libraries chart.js**
+==========>ejs files
+<br>
+==========>chart libraries chart.js**
 
