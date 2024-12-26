@@ -1,6 +1,6 @@
 # ProjextX
-AdminRepositry
-this project will be available by the end of the 2024 year
+AdminRepository
+This PROJECT WILL BE DELAYED.
 * Missing Node_modules for large file upload
 
   *Still Under Construction
@@ -39,4 +39,13 @@ the table number is required
 Real time update every Time a new Connection is established
 ### app.js 
 ### admin.js
+# Update 26/12/2024 
+### *Views
+### *app.js
+*Updating the OverView sections 
+**This Project will be delayed due to big changes and updates 
+the Upcoming updates will be : 
+       React
+       ejs files
+       chart libraries chart.js**
 
