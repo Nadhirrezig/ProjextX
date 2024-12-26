@@ -45,7 +45,7 @@ Real time update every Time a new Connection is established
 Updating the OverView sections
 <br>
 **This Project will be delayed due to big changes and updates 
-  the Upcoming updates will be :
+<br>the Upcoming updates will be :
            <br>
 ==========>React
            <br>
