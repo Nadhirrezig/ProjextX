@@ -13,8 +13,9 @@ const PORT = 5000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,'Public')));
 app.use(express.static(path.join(__dirname,'Views')));
+app.use(express.static(path.join(__dirname,'Views','AdminOverview')));
 app.use(express.static(path.join(__dirname,'Public','clienT_env')));
-app.use(session({ secret: 'niggabich', resave: false, saveUninitialized: true }));
+app.use(session({ secret: '21NOV2021', resave: false, saveUninitialized: true }));
 app.set('trust proxy', true);
 
 const users = {
@@ -56,7 +57,7 @@ app.get('/admin', (req, res) => {
   }
   res.redirect('/login');
 
-  });
+});
 /////////////////////////////////////////////////////////////////////////socket.io functions for the recent activitie status \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 io.on('connection', (socket) => {
     const clientIp = socket.handshake.headers['x-forwarded-for'] || socket.handshake.address;
@@ -80,7 +81,13 @@ io.on('connection', (socket) => {
     socket.emit("activitie",Login_data);
   });
 }); //// <3 Finally
-
+/////////////////////////////////////////////////////////////////////controlling LINKs\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+app.get('/admin/overview', (req, res) => {
+  if (req.session.user && req.session.user.role === 'admin') {
+    return res.sendFile(path.join(__dirname, 'Views', 'AdminOverview', 'overview.html'));
+  }
+  res.redirect('/login');
+});
 
 
 

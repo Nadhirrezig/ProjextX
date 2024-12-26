@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Adminoverview/overview.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Admin Dashboard - Overview</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header id="header">
+        <div class="logo-section">
+            <img src="" alt="Logo" class="logo">
+            <span class="toggle-btn" onclick="openNav()">&#9776;</span>
+        </div>
+        <h1>Welcome, Admin</h1>
+        <div class="header-icons">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </header>
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <h2>Dashboard</h2>
+            <span class="close-btn" onclick="closeNav()">&times;</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="/admin.html"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-chart-line"></i>Menu</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </aside>
+    <main>
+        <div class="summury">
+            <div class="revenue_orders">
+                <div class="revenue">
+                    <h4>Total Revenue</h4>
+                    <h2>$400</h2>
+                </div>
+                <div class="orders">
+                    <h4>Total Orders</h4>
+                    <h2>200</h2>
+                </div>
+            </div>
+            <div class="status">
+                <p>Chart Placeholder (Lhne chin7oto chart librarie)</p>
+            </div>
+            <div class="lastorders">
+                <h4>Last Orders</h4>
+                <table id="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Table</th>
+                            <th>Time</th>
+                            <th>Track</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#54</td>
+                            <td>12:00 PM</td>
+                            <td>Pending</td>
+                            <td>50DT</td>
+                        </tr>
+                        <tr>
+                            <td>#31</td>
+                            <td>12:30 PM</td>
+                            <td>Completed</td>
+                            <td>30DT</td>
+                        </tr>
+                        <tr>
+                            <td>#36</td>
+                            <td>1:00 PM</td>
+                            <td>Pending</td>
+                            <td>70DT</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: center;">No More Orders</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="trending-products">
+            <h4>Trending Products</h4>
+            <ol>
+                <li>Espresso</li>
+                <li>Cappuccino</li>
+                <li>Pizza</li>
+            </ol>
+        </div>
+    </main>
+</body>
+<script src="/Admin.js"></script>
+</html>

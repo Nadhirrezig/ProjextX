@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>ProjectX</title>
+</head>
+<body>
+    <header id="header">
+        <div class="logo-section">
+            <img src="" alt="Logo" class="logo">
+            <span class="toggle-btn" onclick="openNav()">&#9776;</span>
+        </div>
+        <h1>Welcome, Admin</h1>
+        <div class="header-icons">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </header>
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <h2>Dashboard</h2>
+            <span class="close-btn" onclick="closeNav()">&times;</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="admin.html"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-chart-line"></i>Menu</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </aside>
+    <main>
+        <div class="main-content">
+            <section class="card">
+                <a href="/admin/overview">Overview</a>
+            </section>
+            <section class="card" onclick="loadEmployeeSection()">
+                <button>Managing Employment</button>
+            </section>
+            <section class="card" onclick="loadRecentActivitySection()">
+                <button>Recent Activity</button>
+            </section>
+            <section class="card" onclick="loadReportsSection()">
+                <button>Reports</button>
+            </section>
+          </div>
+    </main>
+</body>
+<script src="Admin.js"></script>
+</html>

@@ -32,39 +32,70 @@ function closeNav() {
         document.getElementById("header").classList.remove("hide-header");
     }
 }
-////////////////////////////////////////////////////////////////// CONTROLLING THE menu \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/////// dashboard on click
-function loadmain(event){
-    const main = `
-            <div class="main-content">
-                <section class="card" onclick="loadOverviewSection()">
-                    <button>Overview</button>
-                </section>
-                <section class="card" onclick="loadEmployeeSection()">
-                    <button>Managing Employment</button>
-                </section>
-                <section class="card" onclick="loadRecentActivitySection()">
-                    <button>Recent Activity</button>
-                </section>
-                <section class="card" onclick="loadReportsSection()">
-                    <button>Reports</button>
-                </section>
-            </div>
-    `;
-    if(document.querySelector("main").innerHTML !== main){
-        document.querySelector("main").innerHTML = main;
-        setTimeout(()=>{
-            closeNav();
-        },500);
-    }
-}
 ////////////////////////////////////////////////////////////////// Controlling the overview \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 function loadOverviewSection() {
     document.querySelector("main").innerHTML = `
-        <div class="overview-section">
-            <h1>Overview</h1>
-            <p>Summary of the dashboard activity goes here.</p>
+        <div class="overview">
+        <div class="summury">
+            <div class="revenue_orders">
+                <div class="revenue">
+                    <h4>Total Revenue</h4>
+                    <h2>$400</h2>
+                </div>
+                <div class="orders">
+                    <h4>Total Orders</h4>
+                    <h2>200</h2>
+                </div>
+            </div>
+            <div class="status">
+                <p>Chart Placeholder (Lhne chin7oto chart librarie)</p>
+            </div>
+            <div class="lastorders">
+                <h4>Last Orders</h4>
+                <table id="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Table</th>
+                            <th>Time</th>
+                            <th>Track</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#54</td>
+                            <td>12:00 PM</td>
+                            <td>Pending</td>
+                            <td>50DT</td>
+                        </tr>
+                        <tr>
+                            <td>#31</td>
+                            <td>12:30 PM</td>
+                            <td>Completed</td>
+                            <td>30DT</td>
+                        </tr>
+                        <tr>
+                            <td>#36</td>
+                            <td>1:00 PM</td>
+                            <td>Pending</td>
+                            <td>70DT</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: center;">No More Orders</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+        <div class="trending-products">
+            <h4>Trending Products</h4>
+            <ol>
+                <li>Espresso</li>
+                <li>Cappuccino</li>
+                <li>Pizza</li>
+            </ol>
+        </div>
+    </div>
     `;
 }
 ////////////////////////////////////////////////////////////////// CONTROLLING THE employees \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -249,6 +280,7 @@ function updateRecentActivityUI(loginData) {
 
 ////////////////////////////////////////////////////////////////// Reports\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 function loadReportsSection() {
+    history.pushState({ recentActivity: true }, "", "/recent-activity");
     document.querySelector("main").innerHTML = `
         <div class="reports-section">
             <h1>Reports</h1>

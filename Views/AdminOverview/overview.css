@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    line-height: 1.6;
+}
+
+header#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1e293b;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header .logo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+header .header-icons i {
+    font-size: 1.25rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+header .header-icons i:hover {
+    color: #4ade80;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 120px;
+    margin-right: 10px;
+}
+
+.toggle-btn {
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 10px;
+    color: #fff;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+.header-icons i {
+    font-size: 1.5rem;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+#sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #333;
+    color: #fff;
+    overflow-y: auto;
+    transition: 0.4s;
+    padding-top: 60px;
+    z-index: 10;
+}
+
+#sidebar.show {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.close-btn {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin: 15px 0;
+}
+
+.sidebar-menu li a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    transition: background 0.3s ease;
+}
+
+.sidebar-menu li a i {
+    margin-right: 15px;
+    font-size: 1.4rem;
+    color: #ffcd3c;
+}
+
+.sidebar-menu li a:hover {
+    background-color: #4a47a3;
+    color: #ffcd3c;
+}
+
+main {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+.summury {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.revenue_orders {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.revenue_orders > div {
+    flex: 1;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.revenue_orders > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.revenue_orders h4 {
+    font-size: 1rem;
+    color: #888;
+}
+
+.revenue_orders h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    color: #1e293b;
+}
+
+.status {
+    height: 200px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: #aaa;
+}
+.lastorders {
+    margin-top: 2rem;
+}
+
+#orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#orders-table thead {
+    background: #1e293b;
+    color: #fff;
+}
+
+#orders-table th, #orders-table td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+#orders-table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+#orders-table tbody tr:hover {
+    background: #f1f5f9;
+}
+
+/* Trending Products */
+.trending-products {
+    width: 300px;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.trending-products ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+}
+
+.trending-products li {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1rem;
+}
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .revenue_orders {
+        flex-direction: column;
+    }
+
+    .trending-products {
+        width: 100%;
+    }
+}
